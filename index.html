@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joke & Fact Generator</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joke & Fact Generator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>😂 Joke & Fact Generator 🤓</h1>
-        <div class="buttons">
-            <button id="jokeBtn">Get a Joke</button>
-            <button id="factBtn">Get a Fact</button>
-        </div>
-        <p id="output">Click a button to get started!</p>
+  <header>
+    <h1>😂 Joke & Fact Generator 📚</h1>
+    <p>Fresh jokes and facts, every click!</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <p id="output">Click a button to get started!</p>
+      <div class="actions">
+        <button id="jokeBtn">Get a Joke</button>
+        <button id="factBtn">Get a Fact</button>
+        <button id="surpriseBtn">Surprise Me</button>
+      </div>
+      <div class="extra-actions">
+        <button id="copyBtn">📋 Copy</button>
+        <button id="likeBtn">❤️ Like</button>
+      </div>
     </div>
-    
-    <!-- Make sure this is just before closing body -->
-    <script src="script.js"></script>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ by AaronJnr | Powered by public APIs</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
