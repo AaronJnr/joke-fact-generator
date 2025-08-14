@@ -1,22 +1,25 @@
+const jokeBtn = document.getElementById('jokeBtn');
+const factBtn = document.getElementById('factBtn');
+const output = document.getElementById('output');
+
 const jokes = [
     "Why don’t skeletons fight each other? They don’t have the guts.",
-    "I told my wife she should embrace her mistakes… She gave me a hug.",
-    "Why did the math book look sad? Because it had too many problems."
+    "What do you call cheese that isn't yours? Nacho cheese.",
+    "Why did the scarecrow win an award? Because he was outstanding in his field."
 ];
 
 const facts = [
-    "Honey never spoils. Archaeologists have found 3000-year-old honey still edible.",
-    "Bananas are berries, but strawberries aren't.",
-    "Sharks existed before trees."
+    "Honey never spoils.",
+    "Bananas are berries, but strawberries are not.",
+    "Octopuses have three hearts."
 ];
 
-function getJoke() {
-    const randomIndex = Math.floor(Math.random() * jokes.length);
-    document.getElementById("output").innerText = jokes[randomIndex];
-}
+jokeBtn.addEventListener('click', () => {
+    const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+    output.textContent = randomJoke;
+});
 
-function getFact() {
-    const randomIndex = Math.floor(Math.random() * facts.length);
-    document.getElementById("output").innerText = facts[randomIndex];
-}
-
+factBtn.addEventListener('click', () => {
+    const randomFact = facts[Math.floor(Math.random() * facts.length)];
+    output.textContent = randomFact;
+});
