@@ -1,25 +1,31 @@
-const jokeBtn = document.getElementById('jokeBtn');
-const factBtn = document.getElementById('factBtn');
-const output = document.getElementById('output');
+// script.js
 
-const jokes = [
-    "Why don’t skeletons fight each other? They don’t have the guts.",
-    "What do you call cheese that isn't yours? Nacho cheese.",
-    "Why did the scarecrow win an award? Because he was outstanding in his field."
-];
+const jokeBtn = document.getElementById("jokeBtn");
+const factBtn = document.getElementById("factBtn");
+const output = document.getElementById("output");
 
-const facts = [
-    "Honey never spoils.",
-    "Bananas are berries, but strawberries are not.",
-    "Octopuses have three hearts."
-];
-
-jokeBtn.addEventListener('click', () => {
-    const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-    output.textContent = randomJoke;
+// Fetch random joke
+jokeBtn.addEventListener("click", async () => {
+    output.textContent = "Loading joke...";
+    try {
+        const response = await fetch("https://official-joke-api.appspot.com/random_joke");
+        const data = await response.json();
+        output.textContent = `${data.setup} — ${data.punchline}`;
+    } catch (error) {
+        output.textContent = "Oops! Couldn't fetch a joke.";
+        console.error(error);
+    }
 });
 
-factBtn.addEventListener('click', () => {
-    const randomFact = facts[Math.floor(Math.random() * facts.length)];
-    output.textContent = randomFact;
+// Fetch random fact
+factBtn.addEventListener("click", async () => {
+    output.textContent = "Loading fact...";
+    try {
+        const response = await fetch("https://uselessfacts.jsph.pl/random.json?language=en");
+        const data = await response.json();
+        output.textContent = data.text;
+    } catch (error) {
+        output.textContent = "Oops! Couldn't fetch a fact.";
+        console.error(error);
+    }
 });
