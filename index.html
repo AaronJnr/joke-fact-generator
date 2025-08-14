@@ -9,16 +9,23 @@
 <body>
   <header>
     <h1>😂 Joke & Fact Generator 📚</h1>
-    <p>Fresh jokes and facts, every click!</p>
+    <p>Pick a category and enjoy fresh content every time!</p>
   </header>
 
   <main>
     <div class="card">
-      <p id="output">Click a button to get started!</p>
+      <select id="category">
+        <option value="joke">Random Joke</option>
+        <option value="programming">Programming Joke</option>
+        <option value="dad">Dad Joke</option>
+        <option value="fact">Random Fact</option>
+        <option value="science">Science Fact</option>
+        <option value="history">History Fact</option>
+      </select>
+
+      <p id="output">Select a category and click "Get Content".</p>
       <div class="actions">
-        <button id="jokeBtn">Get a Joke</button>
-        <button id="factBtn">Get a Fact</button>
-        <button id="surpriseBtn">Surprise Me</button>
+        <button id="getContentBtn">Get Content</button>
       </div>
       <div class="extra-actions">
         <button id="copyBtn">📋 Copy</button>

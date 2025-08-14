@@ -31,6 +31,14 @@ main {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
+#category {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
 #output {
   min-height: 60px;
   margin-bottom: 1rem;
