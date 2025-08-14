@@ -35,15 +35,14 @@ async function getContent() {
       res = await fetch("https://uselessfacts.jsph.pl/random.json?language=en");
       data = await res.json();
       output.textContent = data.text;
-    }
-
+}
     else if (category === "science") {
-      res = await fetch("https://api.api-ninjas.com/v1/facts?limit=1", {
-        headers: { "X-Api-Key": "YOUR_API_NINJAS_KEY" }
-      });
-      data = await res.json();
-      output.textContent = data[0].fact;
-    }
+  res = await fetch("https://api.api-ninjas.com/v1/facts?limit=1", {
+    headers: { "X-Api-Key": "M0NoOgbhG2tj6fE4UZluKQ==xGVI6nIk3BNJfJcq" }
+  });
+  data = await res.json();
+  output.textContent = data[0].fact;
+}
 
     else if (category === "history") {
       res = await fetch("https://history.muffinlabs.com/date");
