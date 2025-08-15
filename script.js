@@ -36,12 +36,24 @@ async function getContent() {
       data = await res.json();
       output.textContent = data.text;
 }
-    else if (category === "science") {
-  res = await fetch("https://api.api-ninjas.com/v1/facts?limit=1", {
-    headers: { "X-Api-Key": "M0NoOgbhG2tj6fE4UZluKQ==xGVI6nIk3BNJfJcq" }
-  });
-  data = await res.json();
-  output.textContent = data[0].fact;
+// Function to get a science fact from your Render backend
+async function getScienceFact() {
+    const factText = document.getElementById("fact");
+    factText.innerText = "Loading...";
+
+    try {
+        const response = await fetch("https://science-facts-proxy.onrender.com/facts"); // <-- Replace with your Render URL
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        factText.innerText = data.fact || "No fact found.";
+    } catch (error) {
+        console.error("Error fetching science fact:", error);
+        factText.innerText = "Failed to load content.";
+    }
+}
+
 }
 
     else if (category === "history") {
