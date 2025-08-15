@@ -35,26 +35,14 @@ async function getContent() {
       res = await fetch("https://uselessfacts.jsph.pl/random.json?language=en");
       data = await res.json();
       output.textContent = data.text;
-}
-// Function to get a science fact from your Render backend
-async function getScienceFact() {
-    const factText = document.getElementById("fact");
-    factText.innerText = "Loading...";
-
-    try {
-        const response = await fetch("https://science-facts-proxy.onrender.com/facts");//
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        factText.innerText = data.fact || "No fact found.";
-    } catch (error) {
-        console.error("Error fetching science fact:", error);
-        factText.innerText = "Failed to load content.";
     }
-}
 
-}
+    else if (category === "science") {
+      res = await fetch("https://science-facts-proxy.onrender.com/facts"); // ← your Render backend URL
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+      data = await res.json();
+      output.textContent = data.fact || "No fact found.";
+    }
 
     else if (category === "history") {
       res = await fetch("https://history.muffinlabs.com/date");
@@ -62,10 +50,12 @@ async function getScienceFact() {
       const event = data.data.Events[Math.floor(Math.random() * data.data.Events.length)];
       output.textContent = `${event.year} — ${event.text}`;
     }
+
   } catch {
     output.textContent = "Failed to load content 😢";
   }
 }
+
 
 function copyToClipboard() {
   navigator.clipboard.writeText(output.textContent).then(() => {
