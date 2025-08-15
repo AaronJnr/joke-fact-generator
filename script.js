@@ -42,7 +42,7 @@ async function getScienceFact() {
     factText.innerText = "Loading...";
 
     try {
-        const response = await fetch("https://science-facts-proxy.onrender.com/facts"); // <-- Replace with your Render URL
+        const response = await fetch("https://science-facts-proxy.onrender.com/facts");//
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
